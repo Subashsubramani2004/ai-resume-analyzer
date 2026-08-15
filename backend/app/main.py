@@ -8,7 +8,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "ai-resume-analyzer-cyan-psi.vercel.app",  # replace with your actual Vercel URL
+        "https://ai-resume-analyzer-cyan-psi.vercel.app",  # replace with your actual Vercel URL
     ],
     allow_credentials=True,
     allow_methods=["*"],
