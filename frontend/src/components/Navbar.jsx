@@ -6,7 +6,7 @@ function Navbar() {
 
   return (
     <header className="site-navbar">
-      <Link to="/" className="brand">Resume Analyzer</Link>
+      <Link to="/" className="brand">ResumeAI</Link>
       <nav className="nav-links">
         {isAuthenticated ? (
           <>
