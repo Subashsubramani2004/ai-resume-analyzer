@@ -10,12 +10,122 @@ PHONE_REGEX = re.compile(r"(\+?\d{1,3}[-.\s]?)?\(?\d{3,4}\)?[-.\s]?\d{3,4}[-.\s]
 
 # A small starter skill list — expand this over time.
 COMMON_SKILLS = [
-    "Python", "Java", "JavaScript", "TypeScript", "React", "Angular", "Vue",
-    "FastAPI", "Django", "Flask", "Node.js", "Express", "SQL", "PostgreSQL",
-    "MySQL", "MongoDB", "AWS", "Azure", "GCP", "Docker", "Kubernetes",
-    "Git", "REST API", "GraphQL", "HTML", "CSS", "Tailwind", "SQLAlchemy",
-    "Machine Learning", "Deep Learning", "TensorFlow", "PyTorch", "spaCy",
-    "pandas", "NumPy", "Linux", "CI/CD", "Agile", "JWT", "OAuth",
+    # ── Languages ──────────────────────────────────────────────
+    "Python", "Java", "JavaScript", "TypeScript", "C", "C++", "C#",
+    "Go", "Rust", "Swift", "Kotlin", "Ruby", "PHP", "Scala", "R",
+    "MATLAB", "Perl", "Shell", "Bash", "PowerShell", "Dart", "Lua",
+    "Groovy", "Elixir", "Haskell", "F#", "COBOL", "Fortran", "Assembly",
+
+    # ── .NET ecosystem ─────────────────────────────────────────
+    ".NET", ".NET Core", ".NET Framework", "ASP.NET", "ASP.NET Core",
+    "Entity Framework", "Entity Framework Core", "LINQ", "Blazor",
+    "WPF", "WCF", "WinForms", "MAUI", "Xamarin", "NuGet",
+    "Visual Studio", "Azure DevOps",
+
+    # ── Python ecosystem ───────────────────────────────────────
+    "FastAPI", "Django", "Flask", "SQLAlchemy", "Celery", "Pydantic",
+    "pandas", "NumPy", "SciPy", "Matplotlib", "Seaborn", "Scikit-learn",
+    "TensorFlow", "PyTorch", "Keras", "spaCy", "NLTK", "OpenCV",
+    "Jupyter", "Anaconda",
+
+    # ── Java ecosystem ─────────────────────────────────────────
+    "Spring", "Spring Boot", "Spring MVC", "Spring Security",
+    "Spring Cloud", "Hibernate", "Maven", "Gradle", "JUnit",
+    "Mockito", "Tomcat", "Jakarta EE", "Java EE", "JSP", "Servlets",
+    "Struts", "MyBatis",
+
+    # ── JavaScript / Frontend ──────────────────────────────────
+    "React", "Angular", "Vue", "Next.js", "Nuxt.js", "Svelte",
+    "Node.js", "Express", "NestJS", "Redux", "Zustand", "GraphQL",
+    "REST API", "HTML", "CSS", "Sass", "SCSS", "Tailwind",
+    "Bootstrap", "Material UI", "Webpack", "Vite", "Babel",
+    "Jest", "Cypress", "Playwright", "Storybook", "jQuery",
+
+    # ── Mobile ─────────────────────────────────────────────────
+    "Android", "iOS", "React Native", "Flutter", "Swift",
+    "Kotlin", "Objective-C", "Expo", "Ionic", "Cordova", "MAUI",
+
+    # ── Databases ──────────────────────────────────────────────
+    "SQL", "PostgreSQL", "MySQL", "SQLite", "Oracle", "SQL Server",
+    "MongoDB", "Redis", "Cassandra", "DynamoDB", "Elasticsearch",
+    "CouchDB", "Firebase", "Supabase", "Neo4j", "InfluxDB",
+    "MariaDB", "PL/SQL", "T-SQL",
+
+    # ── Cloud platforms ────────────────────────────────────────
+    "AWS", "Azure", "GCP", "Google Cloud", "AWS Lambda", "AWS S3",
+    "AWS EC2", "AWS RDS", "AWS ECS", "AWS EKS", "Azure Functions",
+    "Azure Blob", "Google Cloud Run", "Google BigQuery",
+    "Cloudflare", "Heroku", "Vercel", "Netlify", "DigitalOcean",
+    "Linode", "IBM Cloud",
+
+    # ── DevOps & Infrastructure ────────────────────────────────
+    "Docker", "Kubernetes", "Helm", "Terraform", "Ansible",
+    "Puppet", "Chef", "Vagrant", "CI/CD", "Jenkins", "GitHub Actions",
+    "GitLab CI", "CircleCI", "Travis CI", "ArgoCD", "Spinnaker",
+    "Nginx", "Apache", "Linux", "Unix", "Ubuntu", "CentOS",
+    "Prometheus", "Grafana", "ELK Stack", "Datadog", "New Relic",
+
+    # ── Version control & collaboration ────────────────────────
+    "Git", "GitHub", "GitLab", "Bitbucket", "SVN", "Jira",
+    "Confluence", "Trello", "Slack", "Notion",
+
+    # ── Security ───────────────────────────────────────────────
+    "Cybersecurity", "Penetration Testing", "OWASP", "OAuth",
+    "JWT", "SSL", "TLS", "Firewalls", "SIEM", "IAM",
+    "Zero Trust", "VAPT", "Burp Suite", "Metasploit", "Wireshark",
+    "Nmap", "Splunk", "SOC", "PKI", "SAML", "SSO",
+
+    # ── Architecture & patterns ────────────────────────────────
+    "Microservices", "REST", "gRPC", "WebSockets", "Event-Driven",
+    "Domain-Driven Design", "CQRS", "Clean Architecture",
+    "MVC", "MVVM", "Design Patterns", "System Design",
+    "Distributed Systems", "Service Mesh", "API Gateway",
+    "Serverless", "Monolith",
+
+    # ── Message brokers & streaming ────────────────────────────
+    "Kafka", "RabbitMQ", "ActiveMQ", "SQS", "SNS",
+    "Redis Pub/Sub", "Kinesis", "Pub/Sub",
+
+    # ── AI / ML / Data ─────────────────────────────────────────
+    "Machine Learning", "Deep Learning", "NLP", "Computer Vision",
+    "Reinforcement Learning", "LLM", "Generative AI", "Prompt Engineering",
+    "LangChain", "OpenAI", "Hugging Face", "MLflow", "Kubeflow",
+    "Data Engineering", "Data Science", "Data Analysis",
+    "Apache Spark", "Hadoop", "Airflow", "dbt", "ETL",
+    "Power BI", "Tableau", "Looker", "Excel", "Data Warehouse",
+    "Snowflake", "BigQuery", "Redshift", "Databricks",
+
+    # ── Testing ────────────────────────────────────────────────
+    "Unit Testing", "Integration Testing", "End-to-End Testing",
+    "TDD", "BDD", "Selenium", "Appium", "Postman", "JMeter",
+    "LoadRunner", "SoapUI", "TestNG", "PyTest", "Robot Framework",
+
+    # ── Project management & methodologies ────────────────────
+    "Agile", "Scrum", "Kanban", "Waterfall", "SAFe",
+    "SDLC", "Product Management", "PMP", "Prince2",
+
+    # ── Networking ─────────────────────────────────────────────
+    "TCP/IP", "DNS", "HTTP", "HTTPS", "VPN", "Load Balancing",
+    "CDN", "Networking", "OSI Model", "Routing", "Switching",
+
+    # ── ERP & enterprise ───────────────────────────────────────
+    "SAP", "SAP ABAP", "SAP HANA", "SAP Fiori", "Salesforce",
+    "ServiceNow", "Workday", "Oracle ERP",
+
+    # ── Blockchain ─────────────────────────────────────────────
+    "Blockchain", "Solidity", "Ethereum", "Web3", "Smart Contracts",
+    "Hyperledger",
+
+    # ── Game development ───────────────────────────────────────
+    "Unity", "Unreal Engine", "OpenGL", "DirectX", "Godot",
+
+    # ── Embedded & IoT ─────────────────────────────────────────
+    "Embedded Systems", "IoT", "Arduino", "Raspberry Pi",
+    "RTOS", "MQTT", "Firmware", "C Embedded",
+
+    # ── Other tools ────────────────────────────────────────────
+    "Figma", "Adobe XD", "UI/UX", "Photoshop", "Illustrator",
+    "WordPress", "Shopify", "Magento", "Drupal",
 ]
 
 
